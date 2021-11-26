@@ -1,0 +1,9 @@
+{
+	"name": "excercise-01",
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "404cb41d-1a4f-49fa-a7d2-51ac9b4fbcd1",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
