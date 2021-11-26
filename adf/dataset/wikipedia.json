@@ -1,0 +1,18 @@
+{
+	"name": "wikipedia",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "examplelake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "jawiki-latest-pages-articles.xml",
+				"container": "wikipedia-raw"
+			}
+		}
+	}
+}
