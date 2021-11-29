@@ -2,15 +2,16 @@
 	"name": "dest0001",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ADLS",
+			"referenceName": "examplelake",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileName": "dest0001"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "dest0001",
+				"container": "crinical-trials"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

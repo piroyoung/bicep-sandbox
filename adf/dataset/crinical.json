@@ -14,6 +14,64 @@
 				"container": "crinical-trials"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"MaximumAge": {
+					"type": "string"
+				},
+				"Description": {
+					"type": "string"
+				},
+				"Title": {
+					"type": "string"
+				},
+				"URL": {
+					"type": "string"
+				},
+				"Gender": {
+					"type": "string"
+				},
+				"FileName": {
+					"type": "string"
+				},
+				"NCTID": {
+					"type": "string"
+				},
+				"Summary": {
+					"type": "string"
+				},
+				"OrgStudyId": {
+					"type": "string"
+				},
+				"Phase": {
+					"type": "string"
+				},
+				"MyURL": {
+					"type": "string"
+				},
+				"Date": {
+					"type": "string"
+				},
+				"HealthyVolunteers": {
+					"type": "string"
+				},
+				"OverallStatus": {
+					"type": "string"
+				},
+				"MinimumAge": {
+					"type": "string"
+				},
+				"Keywords": {
+					"type": "string"
+				},
+				"StartDate": {
+					"type": "string"
+				},
+				"OfficialTitle": {
+					"type": "string"
+				}
+			}
+		}
 	}
 }
