@@ -6,19 +6,27 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "wikipedia",
+						"referenceName": "crinical",
 						"type": "DatasetReference"
 					},
-					"name": "xml"
+					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "selection"
 				}
 			],
-			"script": "source(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\tlimit: 100,\n\tignoreNoFilesFound: false,\n\tvalidationMode: 'none',\n\tnamespaces: true,\n\twildcardPaths:['jawiki-latest-pages-articles.xml']) ~> xml\nxml select(skipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> selection"
+			"script": "source(output(\n\t\tMaximumAge as string,\n\t\tDescription as string,\n\t\tTitle as string,\n\t\tURL as string,\n\t\tGender as string,\n\t\tFileName as string,\n\t\tNCTID as string,\n\t\tSummary as string,\n\t\tOrgStudyId as string,\n\t\tPhase as string,\n\t\tMyURL as string,\n\t\tDate as string,\n\t\tHealthyVolunteers as string,\n\t\tOverallStatus as string,\n\t\tMinimumAge as string,\n\t\tKeywords as string,\n\t\tStartDate as string,\n\t\tOfficialTitle as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'documentPerLine',\n\twildcardPaths:['*']) ~> source1\nsource1 select(mapColumn(\n\t\tMaximumAge,\n\t\tDescription,\n\t\tTitle,\n\t\tURL,\n\t\tGender,\n\t\tFileName,\n\t\tNCTID,\n\t\tSummary,\n\t\tOrgStudyId,\n\t\tPhase,\n\t\tMyURL,\n\t\tDate,\n\t\tHealthyVolunteers,\n\t\tOverallStatus,\n\t\tMinimumAge,\n\t\tKeywords,\n\t\tStartDate,\n\t\tOfficialTitle\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> selection\nselection sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'parquet',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
