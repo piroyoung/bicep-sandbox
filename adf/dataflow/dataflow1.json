@@ -1,0 +1,24 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "wikipedia",
+						"type": "DatasetReference"
+					},
+					"name": "xml"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "selection"
+				}
+			],
+			"script": "source(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\tlimit: 100,\n\tignoreNoFilesFound: false,\n\tvalidationMode: 'none',\n\tnamespaces: true,\n\twildcardPaths:['jawiki-latest-pages-articles.xml']) ~> xml\nxml select(skipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> selection"
+		}
+	}
+}
